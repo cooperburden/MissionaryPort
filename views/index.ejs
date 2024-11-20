@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countries</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <!-- Table headers -->
+                <th>Country</th>
+                <th>Capital</th>
+                <th>Population (Millions)</th>
+                <th>Stakes</th>
+                <th>Active Temples</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% countries.forEach(country => { %>
+                <tr>
+                    <!-- Country data for each row -->
+                    <td><%= country.country %></td>
+                    <td><%= country.capital %></td>
+                    <td><%= country.population_millions %></td>
+                    <td><%= country.stakes %></td>
+                    <td><%= country.active_temples %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
+
+
