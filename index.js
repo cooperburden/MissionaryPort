@@ -36,5 +36,12 @@ app.get("/", (req, res) => {
     });
 });
 
+
+//route to the uganda page. 
+app.get("/uganda", (req, res) => {
+    res.render("uganda");
+})
+
+
 // Start the Express app on the specified port
 app.listen(port, () => console.log(`Express App has started and server is listening on port ${port}!`));
