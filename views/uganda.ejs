@@ -3,11 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Uganda</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS -->
 </head>
 <body>
-    <p>This is test
-        
-    </p>
+    <h1>Uganda</h1>
+    <br><br>
+    <div class="tab-container">
+        <!-- Tab Navigation -->
+        <ul class="tabs">
+            <li class="tab active" id="food-tab">Food</li>
+            <li class="tab" id="culture-tab">Culture</li>
+            <li class="tab" id="history-tab">History of the Church</li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="content" id="food-content">
+            <!-- Food Content -->
+            <h2>Rolex</h2>
+            <p>In Uganda, a "Rolex" isn’t a luxury watch but a beloved street food made by rolling an omelet with vegetables inside a chapati. Affordable and delicious, it originated as a quick meal for students but has become a national favorite, especially in cities like Kampala. The name “Rolex” playfully stems from “rolled eggs,” highlighting its simple preparation. Today, it’s a symbol of Ugandan creativity and a must-try for anyone visiting the country.</p>
+            <img src="/images/rolex.jpg" alt="Rolex" style="display: block; margin: 0 auto; width: 60%; border-radius: 8px;">
+            <p class="caption">Rolex is a common street food in Uganda.</p>
+
+            <h2>Posho</h2>
+            <p>Posho is a staple food in Uganda made from maize flour mixed with boiling water to form a thick, dough-like consistency. It is affordable, filling, and widely eaten across the country, often served with beans, vegetables, or meat. Posho is a key part of school meals, home cooking, and communal gatherings, symbolizing simplicity and sustenance in Ugandan cuisine.</p>
+            <img src="/images/posho.jpeg" alt="Posho" style="display: block; margin: 0 auto; width: 60%; border-radius: 8px;">
+            <p class="caption">Posho is a popular and affordable food in Uganda.</p>
+
+            <h2>Pilau</h2>
+            <p>Pila is a flavorful and aromatic rice dish popular in Uganda, often served at special occasions and gatherings. Cooked with fragrant spices like cinnamon, cardamom, and cloves, it is typically mixed with meat, onions, and sometimes vegetables. Pilau reflects the influence of Indian and Swahili cuisines in Ugandan culture and is cherished for its rich taste and festive appeal.</p>
+            <img src="/images/pilau.jpg" alt="Pilau" style="display: block; margin: 0 auto; width: 60%; border-radius: 8px;">
+            <p class="caption">Pilao is a flavorful rice dish enjoyed during gatherings.</p>
+        </div>
+
+
+
+        <div class="content" id="culture-content" style="display: none;">
+            <!-- Culture Content -->
+            <h2>Culture</h2>
+            <p>The culture of Uganda is diverse, with over 50 ethnic groups, each with its own unique traditions, music, and dance. Ugandans are known for their hospitality, and cultural ceremonies and dances play an important role in community life. The traditional dress for many Ugandans consists of colorful fabrics, and the most popular dance forms include the Bakisimba and the Ekizino.</p>
+        </div>
+    </div>
+
+    <div class="content" id="history-content" style="display: none;">
+        <!-- Language Content -->
+        <h2>History of the Church</h2>
+        <p> In Uganda, the first members of the Churhc of Jesus Christ of Latter-day Saints came to the country in ...</p>
+    </div>
+
+    <!-- Include the JavaScript to handle tab switching -->
+    <script src="/js/tabs.js"></script>
 </body>
 </html>

@@ -4,6 +4,10 @@ let path = require("path");
 
 const port = 5500;
 
+// making the application know about the public file that contains the css styling file
+app.use(express.static(path.join(__dirname, "public")));
+
+
 // Set EJS as the view engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views")); // Specify the 'views' folder
