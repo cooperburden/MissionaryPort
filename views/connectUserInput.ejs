@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add/Update User</title>
+</head>
+<body>
+    <h1><%= user ? "Update User" : "Add User" %></h1>
+    <form action="<%= user ? `/users/${user.user_id}` : '/users' %>" method="POST">
+        <input type="hidden" name="_method" value="<%= user ? 'PUT' : 'POST' %>">
+        <label>First Name:</label>
+        <input type="text" name="first_name" value="<%= user ? user.first_name : '' %>" required>
+        <br>
+        <label>Last Name:</label>
+        <input type="text" name="last_name" value="<%= user ? user.last_name : '' %>" required>
+        <br>
+        <label>Mission Call:</label>
+        <input type="text" name="mission_call" value="<%= user ? user.mission_call : '' %>">
+        <br>
+        <label>Address:</label>
+        <input type="text" name="home_address" value="<%= user ? user.home_address : '' %>">
+        <br>
+        <label>City:</label>
+        <input type="text" name="home_city" value="<%= user ? user.home_city : '' %>">
+        <br>
+        <label>State:</label>
+        <input type="text" name="home_state" value="<%= user ? user.home_state : '' %>">
+        <br>
+        <label>Country:</label>
+        <input type="text" name="home_country" value="<%= user ? user.home_country : '' %>">
+        <br>
+        <label>Zip Code:</label>
+        <input type="text" name="home_zip" value="<%= user ? user.home_zip : '' %>">
+        <br>
+        <button type="submit"><%= user ? "Update" : "Add" %></button>
+    </form>
+</body>
+</html>
