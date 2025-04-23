@@ -1,6 +1,8 @@
 let express = require("express");
 let app = express();
 let path = require("path");
+require('dotenv').config();
+
 
 const { Pool } = require('pg');  // Import the Pool from pg module
 
@@ -28,17 +30,27 @@ app.use(session({
 }));
 
 // Define the knex configuration to connect to the PostgreSQL database
+// Log what environment variables Render is actually seeing
+console.log("Live ENV test:", {
+  DB_HOST: process.env.DB_HOST,
+  DB_USER: process.env.DB_USER,
+  DB_NAME: process.env.DB_NAME,
+  DB_PASSWORD: process.env.DB_PASSWORD ? "[HIDDEN]" : "NOT SET"
+});
+
+// Now define the knex configuration
 const knex = require("knex")({
-  client: "pg", // PostgreSQL client
+  client: "pg",
   connection: {
-    host: process.env.RDS_HOSTNAME || "localhost", // PostgreSQL server's host
-    user: process.env.RDS_USERNAME || "postgres", // Your PostgreSQL username
-    password: process.env.RDS_PASSWORD || "password", // Your PostgreSQL password
-    database: process.env.RDS_DB_NAME || "403ProjectDB", // Your database name
-    port: process.env.RDS_PORT || 5432,
-    ssl: process.env.DB_SSL ? {rejectUnauthorized : false} : false 
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: 5432,
+    ssl: { rejectUnauthorized: false }
   },
 });
+
 console.log("Using DB config:", knex.client.config.connection);
 
 // GET route for the login page
