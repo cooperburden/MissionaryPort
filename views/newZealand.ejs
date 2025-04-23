@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>New Zealand</title>
+   <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS -->
+</head>
+<body>
+    <header class="title-container">
+        <div style="background-image: url('/images/newzealand/newzealandBanner.jpg'); background-size: cover; background-position: center; padding: 50px 0; text-align: center; color: white;">
+            <h1 style="margin: 0; font-size: 3rem; color:#ffffff; text-shadow: 2px 2px 0px black, -2px -2px 0px black, 2px -2px 0px black, -2px 2px 0px black;">New Zealand</h1>
+        </div>
+        <a href="/map" class="go-back-button" style="position: absolute; top: 10px; right: 10px; text-decoration: none; background-color: #407c87; color: white; padding: 10px 15px; border-radius: 5px;">Go Back to Map</a>
+    </header>  
+
+    <div class="tab-container">
+       <!-- Tab Navigation -->
+       <ul class="tabs">
+           <li class="tab active" id="food-tab">Food</li>
+           <li class="tab" id="culture-tab">Culture</li>
+           <li class="tab" id="history-tab">History of the Church</li>
+       </ul>
+
+       <!-- Tab Content -->
+       <div class="content" id="food-content">
+           <!-- Food Content -->
+           <h2>Hangi</h2>
+           <p>The Hangi is a traditional New Zealand Māori method of cooking food, using heated rocks buried in a pit oven. Meat and vegetables are placed in a basket and lowered into the pit, cooking slowly for hours. It is often prepared for large gatherings or feasts, and it's an iconic symbol of Māori culture.</p>
+
+           <h2>Pavlova</h2>
+           <p>Pavlova is a famous New Zealand dessert made of a meringue base topped with whipped cream and fresh fruits such as kiwifruit, berries, or passion fruit. It is often enjoyed during holidays and special occasions and is a point of pride for New Zealanders who claim it as their own creation, although Australia also claims it.</p>
+
+           <h2>Fish and Chips</h2>
+           <p>Fish and chips are a beloved takeaway food in New Zealand. The dish typically includes battered fish (usually snapper or hoki) served with thick-cut fried potato chips. It is enjoyed by Kiwis at beach outings or as a quick, comforting meal after a busy day.</p>
+       </div>
+
+       <div class="content" id="culture-content" style="display: none;">
+           <!-- Culture Content -->
+           <h2>Language</h2>
+           <p>New Zealand is a bilingual country with two official languages: English and Māori. Māori, the language of the indigenous Māori people, holds great cultural significance and is increasingly being revitalized. Te Reo Māori is taught in schools and used in ceremonies and media to preserve the language and traditions of the Māori people.</p>
+
+           <h2>Currency</h2>
+           <p>The official currency of New Zealand is the New Zealand Dollar (NZD). It is widely used for all transactions, and coins come in denominations of 10c, 20c, 50c, $1, and $2, while banknotes are available in $5, $10, $20, $50, and $100. The New Zealand Dollar is one of the most stable currencies in the Asia-Pacific region.</p>
+
+           <h2>Weather</h2>
+           <p>New Zealand experiences a temperate climate with four distinct seasons: summer, autumn, winter, and spring. Summer temperatures range from 20°C to 30°C (68°F to 86°F), while winters can be cold, especially in the South Island, where snowfall is common. The country is known for its frequent rainfall, lush greenery, and mild temperatures, making it a popular destination for outdoor enthusiasts.</p>
+       </div>
+
+       <div class="content" id="history-content" style="display: none;">
+           <!-- History Content -->
+           <h2>History of the Church in New Zealand</h2>
+           <p>The Church of Jesus Christ of Latter-day Saints was introduced to New Zealand in 1854 by Samuel M. R. Snow. Initially, members of the Church were isolated, but as the number of converts grew, the Church began to establish a more visible presence. The first baptism in New Zealand took place in the Bay of Islands, and by the 1870s, a branch was organized in Auckland. Today, New Zealand is home to a vibrant LDS community with multiple stakes and a temple in Hamilton.</p>
+           <p>In 1958, the New Zealand Mission was established, and in 1967, the first stake in New Zealand was organized in Auckland. The Church has continued to grow, and there are currently over 70,000 Latter-day Saints in the country. New Zealand has become a key area for missionary work, with missionaries actively engaged in spreading the gospel throughout the country.</p>
+       </div>
+    </div>
+
+   <!-- Include the JavaScript to handle tab switching -->
+   <script src="/js/tabs.js"></script>
+</body>
+</html>

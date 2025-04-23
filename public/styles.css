@@ -3,7 +3,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #4B0000; /* Dark red background */
+    background-color: #f1f0f0; /* Dark red background */
     color: #fff;
     margin: 0;
     padding: 0;
@@ -37,23 +37,23 @@ body {
     margin-right: 10px; /* Space between tabs */
     font-size: 1.1em; /* Slightly larger font for readability */
     text-align: center;
-    background-color: #800000; /* Subtle dark red background */
+    background-color: #5195a1; /* Subtle dark red background */
     color: #fff; /* White text for contrast */
 }
 
 /* Hover Effect */
 .tab:hover {
-    background-color: #7f0000; /* Darker red when hovering */
+    background-color: #5195a1; /* Darker red when hovering */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
     transform: scale(1.05); /* Slight scaling effect for interactivity */
 }
 
 /* Active Tab */
 .tab.active {
-    background-color: #7f0000; /* Active tab color */
+    background-color: #407c87; /* Active tab color */
     color: #fff;
     font-weight: bold;
-    border: 2px solid #f2e934; /* Light yellow border for active tab */
+    border: 2px solid #fff200; /* Light yellow border for active tab */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Slight shadow for the active tab */
 }
 
@@ -61,8 +61,8 @@ body {
 .content {
     display: none;
     padding: 20px;
-    background-color: #4B0000;
-    color: #fff;
+    background-color: #dddcdc;
+    color: #000000;
     border-radius: 8px;
     margin-top: 20px;
     transition: all 0.3s ease; /* Smooth transition when switching tabs */
@@ -81,20 +81,20 @@ body {
 .caption {
     text-align: center;
     font-size: 0.9em;
-    color: #ccc; /* Slightly lighter color for captions */
+    color: #5d5656; /* Slightly lighter color for captions */
 }
 
 /* Heading */
 h2 {
-    color: #f2e934; /* Yellow color for headings */
+    color: #000000; /* Yellow color for headings */
     font-size: 1.8em;
     margin-bottom: 20px;
 }
 
 h1 {
     font-family: Arial, sans-serif;
-    font-size: 2.5em; /* Larger header */
-    color: #fff;
+    font-size: 1.5em; /* Larger header */
+    color: #000000;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 30px;

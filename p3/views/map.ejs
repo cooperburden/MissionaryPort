@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDS Missionary Preparation</title>
+    <style>
+      /* Add some styling to the table */
+      table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+/* Style the 'View Country' button */
+#countryTable .btn {
+  background-color: #5195a1; /* Light blue color */
+  color: white; /* White text color */
+  padding: 6px 15px; /* Reduced padding for a smaller button */
+  text-align: center; /* Center the text inside the button */
+  display: inline-block; /* Ensures the button remains inline with the text */
+  margin: 0 auto; /* Centers the button horizontally */
+  width: auto; /* Button width adjusts to content */
+  box-sizing: border-box; /* Ensures padding is included in the width calculation */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition effect */
+}
+
+#countryTable .btn:hover {
+  background-color: #4682b4; /* Darker blue when hovered */
+}
+
+
+
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  </head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#" style="font-size: 30px;">LDS Missionary Preparation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/map">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/resources">Resources</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/viewAccount">Account</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<br>
+  <!-- Header Section -->
+  <div class="header-container" style="position: relative; text-align: center; color: rgb(106, 103, 103); height: 150px; display: flex; justify-content: center; align-items: center;">
+    <header class="text-center my-4" style="position: relative; z-index: 1;">
+      <h1 style="font-size: 3rem; color: #ffffff; text-shadow: 3px 3px 8px black;">
+        Congratulations <%= firstName %>, on your Mission Call!
+      </h1>
+      <p style="font-size: 1.55rem; ">Select the country you were called to and learn more about your assignment.</p>
+    </header>
+    
+    <!-- Background image with opacity -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('/images/uganda/temple2.webp'); background-size: cover; background-position: center; z-index: -1;"></div>
+  </div>
+  <br><br>
+
+  <!-- Map Section -->
+  <div class="container">
+    <div id="map" style="height: 500px;"></div>
+  </div>
+<br><br>
+
+
+  <!-- Search Bar for Country -->
+  <div class="container">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search for a country..." onkeyup="searchCountry()">
+  </div>
+  <br><br>
+
+
+ <!-- Table to display country data -->
+ <table id="countryTable">
+  <thead>
+    <tr>
+      <th>Country Name</th>
+      <th>Capital</th>
+      <th>Population (Millions)</th>
+      <th>Stakes</th>
+      <th>Active Temples</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Loop through countries and display each row -->
+    <% countries.forEach(country => { %>
+      <tr>
+        <td><%= country.country_name %></td>
+        <td><%= country.capital %></td>
+        <td><%= country.population_millions %></td>
+        <td><%= country.stakes %></td>
+        <td><%= country.active_temples %></td>
+        <td>
+          <!-- View Country Button that links to dynamic country route -->
+          <a href="/<%= country.country_name === 'Dominican Republic' ? 'dominicanRepublic' : country.country_name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>" class="btn btn-primary">View Country</a>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-light mt-4">
+    <p>&copy; 2023 LDS Missionary Preparation. All rights reserved.</p>
+  </footer>
+
+
+
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+    <!-- [Existing head content] -->
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+  
+    <body>
+      <!-- [Existing body content] -->
+  
+      <!-- Map Container -->
+      <div id="map" style="height: 500px;"></div>
+  
+      <!-- Leaflet JS -->
+      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+      <!-- Custom JS -->
+      <script src="assets/js/map.js"></script>
+
+        <!-- JavaScript for Search Functionality -->
+  <script>
+    function searchCountry() {
+      // Get the search input value and convert it to lowercase
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      
+      // Get the table and all rows
+      let table = document.getElementById("countryTable");
+      let rows = table.getElementsByTagName("tr");
+      
+      // Loop through all rows and hide those that don't match the search term
+      for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
+        let cells = rows[i].getElementsByTagName("td");
+        let countryName = cells[0].textContent.toLowerCase(); // Get the country name (first column)
+        
+        // If the country name contains the search term, show the row, otherwise hide it
+        if (countryName.includes(input)) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+
+
+
+
+  </body>
+
+  <script>
+// Initialize the map
+var map = L.map('map').setView([20, 0], 2);
+
+// Add OpenStreetMap tile layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Styling functions
+function defaultStyle() {
+  return {
+    color: '#555555',    // Dark gray border
+    weight: 1,           // Border weight
+    fillColor: '#cccccc',// Light gray fill color
+    fillOpacity: 1       // Fill opacity
+  };
+}
+
+function highlightStyle() {
+  return {
+    color: '#555555',    // Same dark gray border
+    weight: 1,           // Same border weight
+    fillColor: '#888888',// Darker gray on hover
+    fillOpacity: 1       // Fill opacity
+  };
+}
+
+// Navigation
+function navigateToCountry(countryName) {
+  var pageMap = {
+    'Uganda': '/uganda',
+    'Mongolia': '/mongolia',
+    'Dominican Republic': '/dominicanRepublic'
+  };
+  var page = pageMap[countryName];
+  if (page) {
+    window.location.href = page; // Redirect to the appropriate route
+  }
+}
+
+
+// Event handlers
+function onEachFeature(feature, layer) {
+  layer.on({
+    mouseover: function(e) {
+      e.target.setStyle(highlightStyle());
+    },
+    mouseout: function(e) {
+      e.target.setStyle(defaultStyle());
+    },
+    click: function(e) {
+      navigateToCountry(feature.properties.name);
+    }
+  });
+  layer.bindTooltip(feature.properties.name);
+}
+
+// GeoJSON data for Uganda
+var ugandaGeoJSON = {
+  "type": "Feature",
+  "id": "UGA",
+  "properties": { "name": "Uganda" },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [31.86617, -1.02736],
+        [30.76986, -1.01455],
+        [30.419105, -1.134659],
+        [29.821519, -1.443322],
+        [29.579466, -1.341313],
+        [29.587838, -0.587406],
+        [29.8195, -0.2053],
+        [29.875779, 0.59738],
+        [30.086154, 1.062313],
+        [30.468508, 1.583805],
+        [30.85267, 1.849396],
+        [31.174149, 2.204465],
+        [30.77332, 2.33989],
+        [30.83385, 3.50917],
+        [31.24556, 3.7819],
+        [31.88145, 3.55827],
+        [32.68642, 3.79232],
+        [33.39, 3.79],
+        [34.005, 4.249885],
+        [34.47913, 3.5556],
+        [34.59607, 3.05374],
+        [35.03599, 1.90584],
+        [34.6721, 1.17694],
+        [34.18, 0.515],
+        [33.893569, 0.109814],
+        [33.903711, -0.95],
+        [31.86617, -1.02736]
+      ]
+    ]
+  }
+};
+
+// GeoJSON data for Mongolia
+var mongoliaGeoJSON = {
+  "type": "Feature",
+  "id": "MNG",
+  "properties": { "name": "Mongolia" },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [87.751264, 49.297198],
+        [88.805567, 49.470521],
+        [90.713667, 50.331812],
+        [92.234712, 50.802171],
+        [93.104219, 50.49529],
+        [94.147566, 50.480537],
+        [94.815949, 50.013433],
+        [95.814028, 49.977467],
+        [97.259728, 49.726061],
+        [98.231762, 50.422401],
+        [97.82574, 51.010995],
+        [98.861491, 52.047366],
+        [99.981732, 51.634006],
+        [100.88948, 51.516856],
+        [102.065223, 51.259921],
+        [102.255909, 50.510561],
+        [103.676545, 50.089966],
+        [104.621552, 50.275329],
+        [105.886591, 50.406019],
+        [106.888804, 50.274296],
+        [107.868176, 49.793705],
+        [108.475167, 49.282548],
+        [109.402449, 49.292961],
+        [110.662011, 49.130128],
+        [111.581231, 49.377968],
+        [112.89774, 49.543565],
+        [114.362456, 50.248303],
+        [114.96211, 50.140247],
+        [115.485695, 49.805177],
+        [116.678801, 49.888531],
+        [116.191802, 49.134598],
+        [115.485282, 48.135383],
+        [115.742837, 47.726545],
+        [116.308953, 47.85341],
+        [117.295507, 47.697709],
+        [118.064143, 48.06673],
+        [118.866574, 47.74706],
+        [119.772824, 47.048059],
+        [119.66327, 46.69268],
+        [118.874326, 46.805412],
+        [117.421701, 46.672733],
+        [116.717868, 46.388202],
+        [115.985096, 45.727235],
+        [114.460332, 45.339817],
+        [113.463907, 44.808893],
+        [112.436062, 45.011646],
+        [111.873306, 45.102079],
+        [111.348377, 44.457442],
+        [111.667737, 44.073176],
+        [111.829588, 43.743118],
+        [111.129682, 43.406834],
+        [110.412103, 42.871234],
+        [109.243596, 42.519446],
+        [107.744773, 42.481516],
+        [106.129316, 42.134328],
+        [104.964994, 41.59741],
+        [104.522282, 41.908347],
+        [103.312278, 41.907468],
+        [101.83304, 42.514873],
+        [100.845866, 42.663804],
+        [99.515817, 42.524691],
+        [97.451757, 42.74889],
+        [96.349396, 42.725635],
+        [95.762455, 43.319449],
+        [95.306875, 44.241331],
+        [94.688929, 44.352332],
+        [93.480734, 44.975472],
+        [92.133891, 45.115076],
+        [90.94554, 45.286073],
+        [90.585768, 45.719716],
+        [90.970809, 46.888146],
+        [90.280826, 47.693549],
+        [88.854298, 48.069082],
+        [88.013832, 48.599463],
+        [87.751264, 49.297198]
+      ]
+    ]
+  }
+};
+
+// GeoJSON data for Dominican Republic
+var dominicanRepublicGeoJSON = {
+  "type": "Feature",
+  "id": "DOM",
+  "properties": { "name": "Dominican Republic" },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-71.712361, 19.714456],
+        [-71.587304, 19.884911],
+        [-70.806706, 19.880286],
+        [-70.214365, 19.622885],
+        [-69.950815, 19.648],
+        [-69.76925, 19.293267],
+        [-69.222126, 19.313214],
+        [-69.254346, 19.015196],
+        [-68.809412, 18.979074],
+        [-68.317943, 18.612198],
+        [-68.689316, 18.205142],
+        [-69.164946, 18.422648],
+        [-69.623988, 18.380713],
+        [-69.952934, 18.428307],
+        [-70.133233, 18.245915],
+        [-70.517137, 18.184291],
+        [-70.669298, 18.426886],
+        [-70.99995, 18.283329],
+        [-71.40021, 17.598564],
+        [-71.657662, 17.757573],
+        [-71.708305, 18.044997],
+        [-71.687738, 18.31666],
+        [-71.945112, 18.6169],
+        [-71.701303, 18.785417],
+        [-71.624873, 19.169838],
+        [-71.712361, 19.714456]
+      ]
+    ]
+  }
+};
+
+// Create a layer group to hold all countries
+var countriesLayerGroup = L.layerGroup().addTo(map);
+
+// Function to add GeoJSON layers to the map
+function addCountryLayer(geojsonData) {
+  L.geoJson(geojsonData, {
+    style: defaultStyle,
+    onEachFeature: onEachFeature
+  }).addTo(countriesLayerGroup);
+}
+
+// Add the countries to the map
+addCountryLayer(ugandaGeoJSON);
+addCountryLayer(mongoliaGeoJSON);
+addCountryLayer(dominicanRepublicGeoJSON);
+
+// Adjust the map view to fit all countries
+map.fitBounds(countriesLayerGroup.getBounds());
+
+  </script>
+
+</html>

@@ -3,62 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countries List</title>
+    <title>Login</title>
     <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            background: url('/images/uganda/space2.gif') no-repeat center center fixed;
+            background-size: cover; /* Ensures the GIF covers the full viewport */
+            overflow: hidden; /* Prevents scrollbars if the GIF causes overflow */
+             z-index: -1; /* Keeps it behind other elements */
         }
+
+        .login-container {
+            background-color: #dddcdc;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-left: 350px; /* Adjust this value to move it right */
+        }
+
         h1 {
             text-align: center;
+            margin-bottom: 30px;
+            color: #000000;
+            font-size: 23px;
+            margin-left: 5px;
+            margin-right: 5px;
+
         }
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
+
+        .form-group {
+            margin-bottom: 15px;
         }
-        th, td {
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
             padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-        th {
-            background-color: #007bff;
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #5195a1;
+            border: none;
             color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+
+        button[type="submit"]:hover {
+            background-color: #4682b4;
         }
+
+        /* Styling for the "Create Account" link */
+        .create-account-btn {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .create-account-btn:hover {
+            text-decoration: underline;
+        }
+
+        #error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+
+
+
     </style>
 </head>
 <body>
-    <h1>Countries</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <!-- Table headers -->
-                <th>Country</th>
-                <th>Capital</th>
-                <th>Population (Millions)</th>
-                <th>Stakes</th>
-                <th>Active Temples</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% countries.forEach(country => { %>
-                <tr>
-                    <!-- Country data for each row -->
-                    <td><%= country.country %></td>
-                    <td><%= country.capital %></td>
-                    <td><%= country.population_millions %></td>
-                    <td><%= country.stakes %></td>
-                    <td><%= country.active_temples %></td>
-                </tr>
-            <% }); %>
-        </tbody>
-    </table>
+
+
+    <div class="login-container">
+        <h1>Welcome to Missionaries World Wide! Please Log In.</h1>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Button for creating an account -->
+        <a href="/createAccount" class="create-account-btn">Don't have an account? Create one here!</a>
+
+        <!-- Display error message if it's passed -->
+        <p id="error-message">
+            <% if (typeof error !== "undefined") { %>
+                <%= error %>
+            <% } %>
+        </p>
+    </div>
 </body>
 </html>
-
-

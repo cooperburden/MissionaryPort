@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <style>
+
+/* Add background image to the entire page */
+body {
+    background: url('/images/uganda/worldMap.PNG') no-repeat center center fixed; 
+    background-size: cover; /* Ensures the background image covers the entire viewport */
+    font-family: Arial, sans-serif; /* Keep the font consistent across the page */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+
+/* Account Info Section */
+.account-info {
+    margin-top: 60px;
+    padding: 25px;
+    background: linear-gradient(135deg, #e6e6e6, #ffffff);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    margin: 80px auto;
+    position: relative;
+    text-align: left;
+    border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: 150px 1fr; /* Two columns: one for profile pic and another for text */
+    gap: 20px;
+}
+
+/* Profile Picture */
+.profile-picture {
+    width: 120px; /* Size of the profile picture */
+    height: 120px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder background */
+    border: 3px solid #fff; /* Add a border around the picture */
+    background-image: url('/images/uganda/addPhoto.jpg'); /* Path to the profile picture image */
+    background-size: cover; /* Ensures the image covers the circle */
+    background-position: center; /* Centers the image within the circle */
+}
+
+/* User Information Container */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* User Information Heading */
+.account-info h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    grid-column: 1 / -1; /* Spans both columns */
+    text-align: center;
+}
+
+/* User's Name */
+.account-info .user-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 20px; /* Increased space between lines */
+    text-align: center;
+}
+
+/* Other Information */
+.account-info .label {
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    padding-right: 15px; /* Space before the value */
+    font-size: 14px;
+}
+
+.account-info .value {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px; /* Added space between email and home address */
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Distribute buttons across the container */
+    align-items: center; /* Align buttons vertically in the center */
+    margin-top: 25px;
+}
+
+/* Button Styles */
+button,
+a {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-family: Arial, sans-serif; /* Ensured consistent font */
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* Go Back to Map Button - Bottom Left */
+.back-to-map-btn {
+    background: linear-gradient(135deg, #28a745, #34d058);
+    color: white;
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+    text-align: center;
+}
+
+.back-to-map-btn:hover {
+    background: linear-gradient(135deg, #218838, #28a745);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+}
+
+/* Center the Edit Account Button */
+.edit-account-btn {
+    background: linear-gradient(135deg, #007bff, #1a8cff);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center button horizontally */
+}
+
+/* Hover Effect for Edit Account Button */
+.edit-account-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff); /* Darker blue */
+
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4); /* Stronger shadow */
+}
+
+
+
+/* Delete Account Button - Bottom Right */
+.delete-account-btn {
+    background: linear-gradient(135deg, #dc3545, #e94a5b);
+    color: white;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
+    position: absolute;
+    bottom: 30px;  /* Adjust as necessary to create space from the bottom */
+    right: 20px;   /* Adjust as necessary to create space from the right */
+}
+
+.delete-account-btn:hover {
+    background: linear-gradient(135deg, #b21f2d, #dc3545);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(220, 53, 69, 0.4);
+}
+
+/* Logout Button */
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff6f61, #ff8a75);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 111, 97, 0.2);
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #e05246, #ff6f61);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 111, 97, 0.4);
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Logout Button -->
+    <form action="/logout" method="POST">
+        <button class="logout-btn" type="submit">Logout</button>
+    </form>
+
+    <!-- Account Info Section -->
+    <div class="account-info">
+        <!-- Profile Picture -->
+        <div class="profile-picture"></div>
+
+        <div class="user-info">
+            <h2>User Information</h2>
+            <p><strong>Name:</strong> <%= user.first_name %> <%= user.last_name %></p>
+            <p><strong>Username:</strong> <%= user.username %></p> 
+            <p><strong>Email:</strong> <%= user.email %></p>
+            <p><strong>Home Address:</strong> 
+                <%= user.home_address %>, <%= user.home_city %>, <%= user.home_state %> <%= user.home_zip %>, <%= user.home_country %>
+            </p>
+        </div>
+
+        <!-- Button Container -->
+        <div class="button-container">
+            <!-- Go Back to Map Button -->
+            <a href="/map" class="back-to-map-btn">Go Back to Map</a>
+
+            <!-- Edit Account Button -->
+            <a href="/editAccount" class="edit-account-btn">Edit Account</a>
+
+            <!-- Delete Account Button -->
+            <form action="/deleteAccount" method="POST" onsubmit="return confirmDelete()">
+                <button class="delete-account-btn" type="submit">Delete Account</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Confirmation dialog for account deletion
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete your account? This action cannot be undone.");
+        }
+    </script>
+
+</body>
+</html>
